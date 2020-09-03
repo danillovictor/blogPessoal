@@ -7,7 +7,7 @@
         </div>
 
         <div class="col-md-8">
-            <h3 class="text-center mb-4 text-monospace">Registros de um viajante!</h3>
+            <h3 class="text-center mb-4 text-monospace mt-3">Faça sua interação com o blog!</h3>
 
             <div class="form-group">
                 <label class="text-monospace" for="titulo">Título:</label>
@@ -34,7 +34,7 @@
                 </div>
             </div>
 
-            <div class="col-md-6 d-flex justify-content-end">
+            <div class="col-md-6 d-flex justify-content-end mt-2">
                 <button type="button" class="btn btn-outline-success w-25" (click)='publicar()'>Publicar</button>
             </div>
 
@@ -63,7 +63,7 @@
                                 aria-label="Pesquisar">
                         </div>
                         <div class="col-md-2 pl-0">
-                            <button class="btn btn-outline-success w-100" type="button">Pesquisar</button>
+                            <button class="btn btn-outline-info w-100 ml-2" type="button">Pesquisar</button>
                         </div>
                     </div>
                 </div>
@@ -84,7 +84,7 @@
                                             Editar
                                         </button>
 
-                                        <button class="btn btn-outline-info ml-3"
+                                        <button class="btn btn-outline-danger ml-3"
                                             [routerLink]="['/delete-post', item.id]">
                                             Apagar
                                         </button>
