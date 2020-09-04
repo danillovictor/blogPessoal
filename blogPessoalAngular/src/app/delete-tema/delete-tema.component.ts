@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Tema } from '../model/Tema';
 import { TemaService } from '../service/tema.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { AlertaService } from '../service/alerta.service';
 
 @Component({
-  selector: 'app-delete-tema',
+  selector: 'app-detele-tema',
   templateUrl: './delete-tema.component.html',
   styleUrls: ['./delete-tema.component.css']
 })
@@ -15,18 +16,19 @@ export class DeleteTemaComponent implements OnInit {
   constructor(
     private temaService: TemaService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private alerta: AlertaService
   ) { }
 
-  ngOnInit() {
-    window.scroll(0, 0)
-    let id: number = this.route.snapshot.params["id"];
+  ngOnInit(){
+    window.scroll(0,0)
+    let id:number = this.route.snapshot.params["id"];
     this.findByIdTema(id)
 
   }
 
-  findByIdTema(id: number) {
-    this.temaService.getByIdTema(id).subscribe((resp: Tema) => {
+  findByIdTema(id:number){
+    this.temaService.getByIdTema(id).subscribe((resp: Tema)=>{
       this.tema = resp
     });
   }
@@ -34,7 +36,7 @@ export class DeleteTemaComponent implements OnInit {
   btnSim() {
     this.temaService.deleteTema(this.tema.id).subscribe(() => {
       this.router.navigate(['/cadastro-tema'])
-      alert('Tema apagado com sucesso!')
+      this.alerta.showAlertSuccess('Tema apagado com sucesso!')
     })
   }
 

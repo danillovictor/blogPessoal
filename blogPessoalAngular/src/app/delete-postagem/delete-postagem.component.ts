@@ -2,43 +2,45 @@ import { Component, OnInit } from '@angular/core';
 import { Postagem } from '../model/Postagem';
 import { Router, ActivatedRoute } from '@angular/router';
 import { PostagemService } from './../service/postagem.service';
+import { AlertaService } from '../service/alerta.service';
 
 @Component({
-  selector: 'app-detele-postagem',
+  selector: 'app-delete-postagem',
   templateUrl: './delete-postagem.component.html',
   styleUrls: ['./delete-postagem.component.css']
 })
 export class DeletePostagemComponent implements OnInit {
-
+  
   postagem: Postagem = new Postagem()
 
   constructor(
     private postagemService: PostagemService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private alerta: AlertaService
   ) { }
 
   ngOnInit() {
-
-    window.scroll(0, 0)
+    
+    window.scroll(0,0)
     let id: number = this.route.snapshot.params['id']
     this.findByIdPostagem(id)
   }
 
-  findByIdPostagem(id: number) {
+  findByIdPostagem(id:number){
     this.postagemService.getByIdPostagem(id).subscribe((resp: Postagem) => {
-      this.postagem = resp
+      this.postagem=resp
     })
   }
 
   btnSim() {
     this.postagemService.deletePostagem(this.postagem.id).subscribe(() => {
       this.router.navigate(['/feed'])
-      alert('Postagem apagada com sucesso!')
+      this.alerta.showAlertSuccess('Postagem apagada com sucesso!')
     })
   }
 
-  btnNao() {
+  btnNao(){
     this.router.navigate(['/feed'])
   }
 

@@ -4,6 +4,7 @@ import { Tema } from '../model/Tema';
 import { TemaService } from '../service/tema.service';
 import { PostagemService } from '../service/postagem.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { AlertaService } from './../service/alerta.service';
 
 @Component({
   selector: 'app-put-postagem',
@@ -13,7 +14,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class PutPostagemComponent implements OnInit {
 
   postagem: Postagem = new Postagem()
-  idPost: number  
+  idPostagem: number  
 
   tema: Tema = new Tema()
   listaTemas: Tema[]
@@ -23,14 +24,15 @@ export class PutPostagemComponent implements OnInit {
     private temaService: TemaService,
     private postagemService: PostagemService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private alerta: AlertaService
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     window.scroll(0,0)
     
-    this.idPost = this.route.snapshot.params["id"]
-    this.findByIdPostagem(this.idPost)
+    this.idPostagem = this.route.snapshot.params["id"]
+    this.findByIdPostagem(this.idPostagem)
 
     
     this.findAllTemas()
@@ -49,10 +51,10 @@ export class PutPostagemComponent implements OnInit {
     this.postagemService.putPostagem(this.postagem).subscribe((resp: Postagem) => {
       this.postagem = resp
       this.router.navigate(['/feed'])
-      alert ('Postagem alterada com sucesso')
+      this.alerta.showAlertSuccess('Postagem alterada com sucesso')
     }, err => {
       if (err.status == '500'){
-        alert ('Preencha todos os campos corretamente antes de enviar!')
+        this.alerta.showAlertDanger('Preencha todos os campos corretamente antes de enviar!')
       }
     })
   }
