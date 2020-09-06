@@ -8,16 +8,16 @@
   
       <div class="col-md-8">
   
-        <h3 class="text-center mb-4 text-monospace mt-3 ">Interaja conosco! Poste algo :) </h3>
+        <h3 class="text-center mb-4 text-monospace mt-3">Interaja conosco! Poste algo :) </h3>
   
         <div class="form-group">
           <label class="text-monospace" for="titulo">Título:</label>
-          <input type="text" class="form-control" id="titulo" placeholder="Digite aqui o seu titulo" [(ngModel)]='postagem.titulo'>
+          <input type="text" class="form-control fonte1" id="titulo" placeholder="Digite aqui o seu titulo" [(ngModel)]='postagem.titulo'>
         </div>
   
         <div class="form-group">
             <label class="text-monospace" for="texto">Texto:</label>
-            <textarea class="form-control" id="texto" rows="3" placeholder="Digite aqui o seu texto" [(ngModel)]='postagem.texto'></textarea>
+            <textarea class="form-control fonte1" id="texto" rows="3" placeholder="Digite aqui o seu texto" [(ngModel)]='postagem.texto'></textarea>
         </div>
   
         <div class="row d-flex align-items-end">
@@ -41,7 +41,7 @@
   
         <hr class="mt-5 mb-5">
   
-        <nav class="d-flex justify-content-center">
+        <nav class="d-flex justify-content-center fonte1">
           <div class="nav nav-tabs" id="nav-tab" role="tablist">
             <a class="nav-item nav-link active text-secondary font-weight-bold" id="nav-home-tab" data-toggle="tab" href="#minhas-postagens"
               role="tab" aria-controls="nav-home" aria-selected="true">Minhas Postagens</a>
@@ -56,10 +56,10 @@
           <div class="tab-pane fade show active" id="minhas-postagens" role="tabpanel" aria-labelledby="nav-postagens-tab">
             <div class="row mt-3 mb-3">
               <div class="col-md-10 pr-0">
-                <input class="form-control w-100" type="search" placeholder="Pesquisar postagem" aria-label="Pesquisar" [(ngModel)]='titulo'>
+                <input class="form-control w-100 font-weight-bold fonte1" type="search" placeholder="Buscar postagem" aria-label="Pesquisar" [(ngModel)]='titulo'>
               </div>
               <div class="col-md-2 pl-0">
-                <button class="btn btn-outline-info w-100 ml-2" type="button" (click)='findByTituloPostagem()'>Pesquisar</button>
+                <button class="btn btn-outline-success w-100 ml-2 font-weight-bold fonte1" type="button" (click)='findByTituloPostagem()'>BUSCAR</button>
               </div>
             </div>
   
@@ -70,26 +70,26 @@
                   <div class="card-header">
                       <div class="row d-flex align-items-center">
                           <div class="col-md-8">
-                              <h5 class="card-title"> {{item.titulo}} </h5>
-                              <small>Tema: {{item.tema.descricao}} </small>
+                              <h5 class="card-title font-weight-bold fonte2"> {{item.titulo}} </h5>
+                              <small class="fonte2small">Tema {{item.tema.descricao}} </small>
                           </div>
                           <div class="col-md-4 d-flex justify-content-end">
   
-                              <button class="mr-3 btn btn-outline-info" [routerLink]="['/editar-post', item.id]">
-                                  Editar
+                              <button class="mr-3 btn btn-outline-info font-weight-bold fonte1" [routerLink]="['/editar-post', item.id]">
+                                  EDITAR
                               </button>
   
-                              <button class="btn btn-outline-danger ml-3" [routerLink]="['/delete-post', item.id]">
-                                  Apagar
+                              <button class="btn btn-outline-danger ml-3 font-weight-bold fonte1" [routerLink]="['/delete-post', item.id]">
+                                  APAGAR
                               </button>
   
                           </div>
                       </div>
                   </div>
   
-                  <div class="card-body" >
+                  <div class="card-body fonte2" >
                     <p class="card-text" aria-describedby="texto"> {{item.texto}} </p>
-                    <small id="texto" class="form-text m-0 text-muted mb-3 text-monospace">
+                    <small id="texto" class="form-text m-0 text-muted mb-3 text-monospace fonte2small">
                       Postado em {{item.data | date: 'dd/MM/yyyy'}} às {{item.data | date:'HH:mm'}}</small>
                   </div>
               </div>

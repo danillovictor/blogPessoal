@@ -11,7 +11,7 @@ export class PerfilLateralComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.nome = "Danilo Victor"
+    this.nome = "Sobre mim :)"
   }
 
 }

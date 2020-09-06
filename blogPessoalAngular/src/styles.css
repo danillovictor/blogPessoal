@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Quicksand:wght@300&family=Shadows+Into+Light&display=swap');
+
+.fonte1 {
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 20px;
+    letter-spacing: .1rem;
+}
+
+.fonte2 {
+    font-family: 'Balsamiq Sans', cursive;
+    font-size: 20px;
+    letter-spacing: .1rem;
+}
+
+.fonte2small {
+    font-size: small;
+    font-family: 'Balsamiq Sans', cursive;
+}

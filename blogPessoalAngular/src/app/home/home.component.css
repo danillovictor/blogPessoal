@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+
 .parallax {
     background-image: url('https://i.imgur.com/UhopLUs.jpg');
   
@@ -7,4 +9,8 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+  }
+
+  .fonte1 {
+    font-family: 'Shadows Into Light', cursive;
   }

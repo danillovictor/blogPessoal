@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Quicksand:wght@300&family=Shadows+Into+Light&display=swap');
+
+.fonte3 {
+    font-family: 'Shadows Into Light', cursive;
+    letter-spacing: .1rem;
+    font-size: 100px;
+}
+
+.fonte2 {
+    font-family: 'Balsamiq Sans', cursive;
+    font-size: 20px;
+    letter-spacing: .1rem;
+}
+
+.fonte2small {
+    font-size: small;
+    font-family: 'Balsamiq Sans', cursive;
+}
+
+.bg-gow {
+    background-image: linear-gradient( rgb(1, 1, 1, 1), rgb(255, 255, 255, 0.2) ), url('https://i.imgur.com/UhopLUs.jpg');
+  
+    width: 100%;
+    height: 100%;
+    padding-block: 0%;
+
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
